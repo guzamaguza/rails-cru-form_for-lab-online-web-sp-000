@@ -1,10 +1,22 @@
 class SongsController < ApplicationController
-  def name
+  def new
   end
 
-  def artist_id
+  def create
   end
 
-  def genre_id
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  def index
+  end
+
+  def show
   end
 end
