@@ -1,42 +1,35 @@
 class ArtistsController < ApplicationController
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   def index
-  end
+      @artists = Artist.all
+    end
 
-  def show
-  end
-  def new
-  end
+    def show
+      @artist = Artist.find(params[:id])
+    end
 
-  def create
-  end
+    def new
+      @artist = Artist.new
+    end
 
-  def edit
-  end
+    def create
+      @artist = Artist.create(artist_params(:name, :bio))
+      redirect_to artist_url(@artist)
+    end
 
-  def update
-  end
+    def edit
+      @artist = Artist.find(params[:id])
+    end
 
-  def destroy
-  end
+    def update
+      @artist = Artist.find(params[:id])
+      @artist.update(artist_params(:name, :bio))
+      @artist.save
+      redirect_to artist_url(@artist)
+    end
 
-  def index
-  end
+    private
 
-  def show
-  end
+    def artist_params(*args)
+      params.require(:artist).permit(*args)
+    end
 end
